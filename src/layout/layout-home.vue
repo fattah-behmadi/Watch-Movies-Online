@@ -1,6 +1,8 @@
 <template>
   <div class="home-container">
-    <search-header />
+    <the-header>
+      <search-header />
+    </the-header>
     <movies-list
       :movies="listOfMovies_state"
       :genresMovies="genresMovies_state"
@@ -10,6 +12,7 @@
 </template>
 
 <script>
+import TheHeader from "@/components/TheHeader.vue";
 import SearchHeader from "@/components/SearchHeader.vue";
 import moviesList from "@/views/movies-list/movies-list.vue";
 import ThePagination from "@/components/ThePagination.vue";
@@ -23,6 +26,7 @@ export default {
     SearchHeader,
     moviesList,
     ThePagination,
+    TheHeader,
   },
   computed: {
     ...mapState(nameSpaced, {

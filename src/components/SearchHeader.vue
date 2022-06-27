@@ -14,13 +14,10 @@ export default {};
 
 <style lang="scss">
 .search-header {
-  height: 5.375rem;
-  background: var(--clr-grey-200);
   display: flex;
   align-items: center;
-  border-radius: 6px;
+  margin-inline-start: 5rem;
   .search-input {
-    margin-inline-start: 5rem;
     .search-input__caption {
       font-weight: 400;
       font-size: 16px;
@@ -34,12 +31,13 @@ export default {};
       outline-color: var(--clr-blue-light);
     }
   }
-
   .btn-search {
+    font-size: 1rem;
     background-color: var(--clr-blue-light);
     color: var(--clr-text-light);
+    padding: 7px 16px;
     border-radius: 100px;
-    width: 74px;
+    width: fit-content;
     height: 33px;
     outline: none;
     border: none;
