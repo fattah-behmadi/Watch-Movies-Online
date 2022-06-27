@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <the-header>
-      <search-header />
+      <search-header @search="searchClick" />
     </the-header>
     <movies-list
       :movies="listOfMovies_state"
@@ -46,6 +46,12 @@ export default {
     }),
     clickPage(page) {
       this.getListMovies_Action({ page });
+    },
+    searchClick(date) {
+      this.getListMovies_Action({
+        "primary_release_date.gte": date.from.toISOString().slice(0, 10),
+        "primary_release_date.lte": date.to.toISOString().slice(0, 10),
+      });
     },
   },
 };

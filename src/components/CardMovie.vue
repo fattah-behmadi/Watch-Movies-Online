@@ -81,6 +81,7 @@ export default {
     .movie-title {
       font-weight: 700;
       font-size: 1rem;
+      line-height: 22px;
     }
     .movie-release_date {
       display: flex;

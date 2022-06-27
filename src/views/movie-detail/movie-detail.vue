@@ -6,14 +6,17 @@
         :descriptin="currentMovie_state.tagline"
       />
     </the-header>
-    <detail-movie :movie="currentMovie_state" :credits="creditsMovie_state" />
+    <movie-information
+      :movie="currentMovie_state"
+      :credits="creditsMovie_state"
+    />
   </div>
 </template>
 
 <script>
 import TheHeader from "@/components/TheHeader.vue";
 import BackHomeHeader from "@/components/BackHomeHeader.vue";
-import DetailMovie from "@/components/DetailMovie.vue";
+import MovieInformation from "@/components/MovieInformation.vue";
 import { mapActions, mapState } from "vuex";
 import { nameSpaced, action } from "@/constants/movies.constants";
 
@@ -21,7 +24,7 @@ export default {
   components: {
     TheHeader,
     BackHomeHeader,
-    DetailMovie,
+    MovieInformation,
   },
   computed: {
     ...mapState(nameSpaced, {

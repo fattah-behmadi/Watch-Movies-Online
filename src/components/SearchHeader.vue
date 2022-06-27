@@ -2,14 +2,38 @@
   <div class="search-header">
     <div class="search-input">
       <span class="search-input__caption">Search by release date:</span>
-      <input type="text" class="search-input__input" />
+      <date-picker
+        v-model="date"
+        @update:modelValue="handleDate"
+        :format="'yyyy-MM-dd'"
+        range
+        multiCalendars
+        class="search-input__input"
+      />
     </div>
-    <button class="btn-search">Search</button>
+    <button class="btn-search" @click="searchClick">Search</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      date: null,
+      filterDate: null,
+    };
+  },
+  methods: {
+    handleDate(dateTime) {
+      let { 0: from, 1: to } = { ...dateTime };
+      this.filterDate = { from, to };
+    },
+    searchClick() {
+      if (!this.filterDate) return;
+      this.$emit("search", this.filterDate);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -18,14 +42,16 @@ export default {};
   align-items: center;
   margin-inline-start: 5rem;
   .search-input {
+    display: flex;
+    align-items: center;
     .search-input__caption {
       font-weight: 400;
       font-size: 16px;
       margin-inline-end: 1.875rem;
     }
     .search-input__input {
-      width: 221px;
-      height: 33px;
+      width: 16.25rem;
+      height: 2.0625rem;
       border: none;
       border-radius: 4px;
       outline-color: var(--clr-blue-light);
