@@ -1,6 +1,7 @@
 <template>
   <div class="home-container">
     <search-header />
+    <the-pagination @selectPage="clickPage" :pageCount="totalPages_state" />
     <movies-list
       :movies="listOfMovies_state"
       :genresMovies="genresMovies_state"
@@ -11,6 +12,7 @@
 <script>
 import SearchHeader from "@/components/SearchHeader.vue";
 import moviesList from "@/views/movies-list/movies-list.vue";
+import ThePagination from "@/components/ThePagination.vue";
 
 import { mapActions, mapState } from "vuex";
 import { nameSpaced, action } from "@/constants/movies.constants";
@@ -20,11 +22,13 @@ export default {
   components: {
     SearchHeader,
     moviesList,
+    ThePagination,
   },
   computed: {
     ...mapState(nameSpaced, {
       listOfMovies_state: "listOfMovies",
       genresMovies_state: "genresMovies",
+      totalPages_state: "totalPages",
     }),
   },
   async mounted() {
@@ -36,6 +40,9 @@ export default {
       getListMovies_Action: action.GET_LIST_MOVIES,
       getGenresMovies_Action: action.GET_GENRES_MOVIES,
     }),
+    clickPage(page) {
+      this.getListMovies_Action({ page });
+    },
   },
 };
 </script>
