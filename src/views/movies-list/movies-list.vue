@@ -7,12 +7,14 @@
       :releaseDate="movie.release_date"
       :img="movie.poster_path"
       :genres="getTitleGenres(movie.genre_ids)"
+      @click="clickCard(movie)"
     />
   </div>
 </template>
 
 <script>
 import CardMovie from "@/components/CardMovie.vue";
+import { routers as routersMovie } from "@/constants/movies.constants";
 
 export default {
   components: {
@@ -36,6 +38,12 @@ export default {
         if (arrIDGenres?.includes(genre.id)) titles.push(genre.name);
         return titles;
       }, []);
+    },
+    clickCard(movie) {
+      this.$router.push({
+        name: routersMovie.MOVIES_DETAIL_NAME,
+        params: { id: movie.id },
+      });
     },
   },
 };

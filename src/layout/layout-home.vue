@@ -1,11 +1,11 @@
 <template>
   <div class="home-container">
     <search-header />
-    <the-pagination @selectPage="clickPage" :pageCount="totalPages_state" />
     <movies-list
       :movies="listOfMovies_state"
       :genresMovies="genresMovies_state"
     />
+    <the-pagination @selectPage="clickPage" :pageCount="totalPages_state" />
   </div>
 </template>
 

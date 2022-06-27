@@ -5,7 +5,10 @@
     </div>
     <div class="movie-card__content">
       <span class="movie-title">{{ title }} </span>
-      <span class="movie-release_date">{{ releaseDate }}</span>
+      <span class="movie-release_date">
+        <mdicon name="CalendarBlank" size="16" />
+        <span class="date_caption"> {{ releaseDate }}</span>
+      </span>
       <span class="movie-genres">
         <span class="genre" v-for="genre in genres" :key="genre">{{
           genre
@@ -80,6 +83,9 @@ export default {
       font-size: 1rem;
     }
     .movie-release_date {
+      display: flex;
+      align-items: center;
+      column-gap: 6px;
       font-weight: 400;
       font-size: 0.75rem;
       margin-block-start: auto;

@@ -26,7 +26,7 @@ export default {
     },
     pageRange: {
       type: Number,
-      default: 5,
+      default: 3,
     },
     marginPages: {
       type: Number,
