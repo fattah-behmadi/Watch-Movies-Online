@@ -10,6 +10,9 @@ const mutations = {
   [mutationsConstant.SET_GENRES](state, data) {
     state.genresMovies = data?.genres || [];
   },
+  [mutationsConstant.SET_MOVIE_DETAIL](state, movie) {
+    state.currentMovie = movie || {};
+  },
 };
 
 export default mutations;

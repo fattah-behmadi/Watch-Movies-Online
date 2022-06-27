@@ -4,6 +4,7 @@ const state = {
   totalPages: 1,
   totalMovies: 100,
   genresMovies: [],
+  currentMovie: {},
 };
 
 export default state;

@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.themoviedb.org/3/";
+export const BASE_URL = "https://api.themoviedb.org/3";
 export const nameSpaced = "movies";
 
 export const routers = Object.freeze({
@@ -12,9 +12,11 @@ export const routers = Object.freeze({
 export const action = Object.freeze({
   GET_LIST_MOVIES: "getListMovies",
   GET_GENRES_MOVIES: "getGenresMovies",
+  GET_MOVIE_DETAILE: "getMovieDetaile",
 });
 
 export const mutations = Object.freeze({
   SET_RESULT_MOVIES: "setResultMovies",
   SET_GENRES: "setGenres",
+  SET_MOVIE_DETAIL: "setMovieDetail",
 });

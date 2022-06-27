@@ -15,6 +15,11 @@ const actions = {
       commit(mutationsConstant.SET_GENRES, Response.data);
     });
   },
+  [actionMovies.GET_MOVIE_DETAILE]({ commit }, movie_id) {
+    services[actionMovies.GET_MOVIE_DETAILE](movie_id).then((Response) => {
+      commit(mutationsConstant.SET_MOVIE_DETAIL, Response.data);
+    });
+  },
 };
 
 export default actions;
