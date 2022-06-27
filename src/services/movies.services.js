@@ -23,8 +23,16 @@ function getMovieDetaile(movie_id) {
   });
 }
 
+function getCreditsMovie(movie_id) {
+  return axios({
+    method: "GET",
+    url: `${BASE_URL}/movie/${movie_id}/credits?${api_key}`,
+  });
+}
+
 export default {
   getListMovies,
   getGenresMovies,
   getMovieDetaile,
+  getCreditsMovie,
 };

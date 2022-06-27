@@ -44,10 +44,11 @@
 
     <div class="info-movie__bottom">
       <p class="movie-desc">{{ movie.overview }}</p>
-      <p class="movie-credit">
-        <span class="captin-credit">Credit:</span>
-        <span class="movie-credit__item">{{ credits }}</span>
-      </p>
+      <div class="movie-credit">
+        <p class="captin-credit">Credit:</p>
+        <p class="movie-credit__item">{{ creditsFullName }}</p>
+        <a class="show-credits">, more</a>
+      </div>
     </div>
   </div>
 </template>
@@ -60,17 +61,24 @@ export default {
   },
   computed: {
     score() {
-      return `${this.movie?.vote_average.toFixed(1)} (${
+      return `${+this.movie?.vote_average?.toFixed(1)} (${
         this.movie?.vote_count
       } votes)`;
     },
     genres() {
-      return this.movie?.genres
-        ?.reduce((title, genre) => {
-          title.push(genre.name);
+      return this.movie?.genres?.reduce((title, genre) => {
+        if (title.length > 0) title = `${title} ${genre.name},`;
+        return title;
+      }, "");
+    },
+    creditsFullName() {
+      return this.credits
+        ?.slice(0, 10)
+        .reduce((title, credit) => {
+          title.push(credit.name);
           return title;
         }, [])
-        ?.join(", ");
+        .join(", ");
     },
   },
   methods: {
@@ -123,12 +131,14 @@ export default {
 
     .movie-credit {
       margin-block-start: 5rem;
+
       .captin-credit {
         font-weight: 700;
         font-size: 1.125rem;
       }
       .movie-credit__item {
         margin-block-start: 0.75rem;
+        text-overflow: ellipsis;
       }
     }
   }

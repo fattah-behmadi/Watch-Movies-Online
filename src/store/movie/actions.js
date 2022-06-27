@@ -20,6 +20,11 @@ const actions = {
       commit(mutationsConstant.SET_MOVIE_DETAIL, Response.data);
     });
   },
+  [actionMovies.GET_CREDITS_MOVIE]({ commit }, movie_id) {
+    services[actionMovies.GET_CREDITS_MOVIE](movie_id).then((Response) => {
+      commit(mutationsConstant.SET_CREDITS_MOVIE, Response.data);
+    });
+  },
 };
 
 export default actions;

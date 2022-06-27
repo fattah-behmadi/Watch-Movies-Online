@@ -5,6 +5,7 @@ const state = {
   totalMovies: 100,
   genresMovies: [],
   currentMovie: {},
+  creditsMovie: [],
 };
 
 export default state;

@@ -13,10 +13,12 @@ export const action = Object.freeze({
   GET_LIST_MOVIES: "getListMovies",
   GET_GENRES_MOVIES: "getGenresMovies",
   GET_MOVIE_DETAILE: "getMovieDetaile",
+  GET_CREDITS_MOVIE: "getCreditsMovie",
 });
 
 export const mutations = Object.freeze({
   SET_RESULT_MOVIES: "setResultMovies",
   SET_GENRES: "setGenres",
   SET_MOVIE_DETAIL: "setMovieDetail",
+  SET_CREDITS_MOVIE: "setCreditsMovie",
 });

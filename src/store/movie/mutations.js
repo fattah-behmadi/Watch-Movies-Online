@@ -13,6 +13,9 @@ const mutations = {
   [mutationsConstant.SET_MOVIE_DETAIL](state, movie) {
     state.currentMovie = movie || {};
   },
+  [mutationsConstant.SET_CREDITS_MOVIE](state, credits) {
+    state.creditsMovie = credits?.cast || [];
+  },
 };
 
 export default mutations;

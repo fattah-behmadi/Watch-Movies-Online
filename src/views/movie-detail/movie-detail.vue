@@ -6,7 +6,7 @@
         :descriptin="currentMovie_state.tagline"
       />
     </the-header>
-    <detail-movie :movie="currentMovie_state" :credits="''" />
+    <detail-movie :movie="currentMovie_state" :credits="creditsMovie_state" />
   </div>
 </template>
 
@@ -26,14 +26,17 @@ export default {
   computed: {
     ...mapState(nameSpaced, {
       currentMovie_state: "currentMovie",
+      creditsMovie_state: "creditsMovie",
     }),
   },
   mounted() {
     this.getMovieDetaile_Action(this.$route.params?.id);
+    this.getCreditsMovie_Action(this.$route.params?.id);
   },
   methods: {
     ...mapActions(nameSpaced, {
       getMovieDetaile_Action: action.GET_MOVIE_DETAILE,
+      getCreditsMovie_Action: action.GET_CREDITS_MOVIE,
     }),
   },
 };
