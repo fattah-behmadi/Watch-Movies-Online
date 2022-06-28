@@ -81,6 +81,5 @@ export default {
   flex-wrap: wrap;
   column-gap: 68px;
   row-gap: 38px;
-  margin-top: 7.5rem;
 }
 </style>
