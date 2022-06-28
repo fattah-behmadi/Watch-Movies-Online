@@ -50,16 +50,39 @@
 
       <div class="mt-20">
         <p class="font-bold text-lg text-gray-100 mb-3">CREDIT :</p>
-        <span class="text-gray-50">{{ creditsFullName }}</span>
-        <sapn class="text-gray-50"> more ...</sapn>
+
+        <div class="flex flex-wrap w-full gap-y-6 gap-x-2">
+          <card-credit
+            v-for="credit in topCredits"
+            :key="credit.id"
+            :img="credit.profile_path"
+            :fullName="credit.name"
+            :character="credit.character"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import CardCredit from "./CardCredit.vue";
 export default {
-  props: ["movie", "credits"],
+  components: {
+    CardCredit,
+  },
+  props: {
+    movie: {
+      type: Object,
+      default: null,
+      required: true,
+    },
+    credits: {
+      type: Array,
+      default: null,
+      required: true,
+    },
+  },
   data() {
     return {};
   },
@@ -75,14 +98,8 @@ export default {
         return title;
       }, "");
     },
-    creditsFullName() {
-      return this.credits
-        ?.slice(0, 10)
-        .reduce((title, credit) => {
-          title.push(credit.name);
-          return title;
-        }, [])
-        .join(", ");
+    topCredits() {
+      return this.credits?.filter((credit) => credit.profile_path).slice(0, 10);
     },
   },
   methods: {
