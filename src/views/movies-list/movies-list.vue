@@ -16,7 +16,7 @@
     </div>
     <the-pagination
       @selectPage="clickPage"
-      :pageCount="totalPages_state"
+      :pageCount="500"
       :page="currentPage"
     />
   </div>
@@ -48,7 +48,7 @@ export default {
     ...mapState(nameSpaced, {
       listOfMovies_state: "listOfMovies",
       genresMovies_state: "genresMovies",
-      totalPages_state: "totalPages",
+      // totalPages_state: "totalPages",// total page count : maximum page number in api is 500
     }),
   },
   async mounted() {
