@@ -49,9 +49,9 @@
       </p>
 
       <div class="mt-20">
-        <p class="font-bold text-lg text-gray-100 mb-3">CREDIT :</p>
+        <p class="font-bold text-lg text-gray-100 mb-6">CREDIT :</p>
 
-        <div class="flex flex-wrap w-full gap-y-6 gap-x-2">
+        <div class="flex justify-center flex-wrap w-full gap-y-6 gap-x-10">
           <card-credit
             v-for="credit in topCredits"
             :key="credit.id"
