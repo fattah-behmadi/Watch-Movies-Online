@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "watch": "npx tailwindcss -i ./src/assets/scss/tailwind.css -o ./src/assets/scss/tailwind-min.css --watch"
   },
   "dependencies": {
     "@mdi/js": "^6.7.96",
@@ -16,6 +17,7 @@
     "mdi-vue": "^3.0.13",
     "node-sass": "^7.0.1",
     "sass-loader": "^13.0.1",
+    "tailwindcss": "^3.1.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.16",
     "vuejs-paginate-next": "^1.0.2",

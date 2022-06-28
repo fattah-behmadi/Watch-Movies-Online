@@ -1,17 +1,28 @@
 <template>
   <transition appear @before-enter="beforeEnter" @enter="enter" :css="false">
-    <div class="movie-card">
-      <div class="movie-card__img">
-        <img :src="getUrlImgae(img)" alt="poster" class="movie-img" />
+    <div
+      class="movie-card flex rounded-md w-[296px] h-[196px] drop-shadow-xl overflow-hidden p-1 cursor-pointer bg-gradient-to-r from-slate-900 to-slate-800"
+    >
+      <!-- poster movie -->
+      <div class="w-32 min-w-[128px] h-full rounded-l-md overflow-hidden">
+        <img :src="getUrlImgae(img)" alt="poster" class="w-full h-full" />
       </div>
-      <div class="movie-card__content">
-        <span class="movie-title">{{ title }} </span>
-        <span class="movie-release_date">
+
+      <!-- content right -->
+      <div class="flex-grow flex-col flex justify-between px-2.5 pb-3 pt-4">
+        <span class="font-bold text-white text-lg">{{ title }} </span>
+
+        <span
+          class="flex items-center gap-x-1.5 font-normal text-xs mt-auto text-slate-400"
+        >
           <mdicon name="CalendarBlank" size="16" />
           <span class="date_caption"> {{ releaseDate }}</span>
         </span>
-        <span class="movie-genres">
-          <span class="genre" v-for="genre in genres" :key="genre">{{
+
+        <span
+          class="flex flex-wrap font-normal gap-x-3.5 text-xs overflow-hidden text-slate-400 mt-2.5"
+        >
+          <span class="genre relative" v-for="genre in genres" :key="genre">{{
             genre
           }}</span>
         </span>
@@ -64,77 +75,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.movie-card {
-  width: 18.4375rem;
-  height: 12.1875rem;
-  display: flex;
-  background: var(--clr-grey-100);
-  border: 1px solid var(--clr-grey-300);
-  border-radius: 6px;
-  overflow: hidden;
-  padding: 0.25rem;
-  cursor: pointer;
-
-  .movie-card__img {
-    min-width: 8rem;
-    height: 11.75rem;
-    border-radius: 6px 0px 0px 6px;
-    overflow: hidden;
-    .movie-img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .movie-card__content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem 10px 12px 10px;
-
-    .movie-title {
-      font-weight: 700;
-      font-size: 1rem;
-      line-height: 22px;
-    }
-    .movie-release_date {
-      display: flex;
-      align-items: center;
-      column-gap: 6px;
-      font-weight: 400;
-      font-size: 0.75rem;
-      margin-block-start: auto;
-      margin-block-end: 0.875rem;
-    }
-    .movie-genres {
-      font-weight: 400;
-      font-size: 0.75rem;
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 0.875rem;
-      overflow: hidden;
-
-      .genre {
-        position: relative;
-
-        &::after {
-          content: "";
-          display: block;
-          width: 4px;
-          height: 4px;
-          background-color: black;
-          border-radius: 50%;
-          position: absolute;
-          right: -8px;
-          top: 50%;
-        }
-
-        &:last-child::after {
-          content: none;
-        }
-      }
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

@@ -1,17 +1,24 @@
 <template>
-  <div class="search-header">
-    <div class="search-input">
-      <span class="search-input__caption">Search by release date:</span>
+  <div class="ml-20 flex items-center">
+    <div class="flex items-center">
+      <span class="mr-7 font-normal text-base text-slate-200"
+        >Search by release date:</span
+      >
       <date-picker
         v-model="date"
         @update:modelValue="handleDate"
         :format="'yyyy-MM-dd'"
         range
         multiCalendars
-        class="search-input__input"
+        class="rounded h-auto w-80"
       />
     </div>
-    <button class="btn-search" @click="searchClick">Search</button>
+    <button
+      class="text-base bg-yellow-500 text-slate-700 h-8 w-36 px-4 py-5 grid place-content-center rounded-full ml-auto mr-16 transition duration-300 hover:shadow-sm hover:shadow-yellow-300/50"
+      @click="searchClick"
+    >
+      Search
+    </button>
   </div>
 </template>
 
@@ -36,40 +43,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.search-header {
-  display: flex;
-  align-items: center;
-  margin-inline-start: 5rem;
-  .search-input {
-    display: flex;
-    align-items: center;
-    .search-input__caption {
-      font-weight: 400;
-      font-size: 16px;
-      margin-inline-end: 1.875rem;
-    }
-    .search-input__input {
-      width: 16.25rem;
-      height: 2.0625rem;
-      border: none;
-      border-radius: 4px;
-      outline-color: var(--clr-blue-light);
-    }
-  }
-  .btn-search {
-    font-size: 1rem;
-    background-color: var(--clr-blue-light);
-    color: var(--clr-text-light);
-    padding: 7px 16px;
-    border-radius: 100px;
-    width: fit-content;
-    height: 33px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    margin-inline-start: auto;
-    margin-inline-end: 3.875rem;
-  }
-}
-</style>
+<style lang="scss"></style>

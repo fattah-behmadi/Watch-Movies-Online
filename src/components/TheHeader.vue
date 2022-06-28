@@ -1,5 +1,7 @@
 <template>
-  <header class="header-container">
+  <header
+    class="rounded-md h-20 grid backdrop-filter backdrop-blur-sm bg-opacity-30 drop-shadow-lg bg-gradient-to-r from-slate-900 to-slate-800 shadow-2xl"
+  >
     <slot />
   </header>
 </template>
@@ -8,11 +10,4 @@
 export default {};
 </script>
 
-<style lang="scss">
-.header-container {
-  display: grid;
-  height: 5.375rem;
-  background: var(--clr-grey-200);
-  border-radius: 6px;
-}
-</style>
+<style lang="scss"></style>

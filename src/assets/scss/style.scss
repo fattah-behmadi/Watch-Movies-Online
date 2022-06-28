@@ -15,7 +15,52 @@
     --clr-blue-light:#549DF2;
 
     --clr-text-light:#fff;
+
 }
+.dp__theme_dark {
+    --dp-background-color: #212121;
+    --dp-text-color: #ffffff;
+    --dp-hover-color: #484848;
+    --dp-hover-text-color: #ffffff;
+    --dp-hover-icon-color: #959595;
+    --dp-primary-color: #005cb2;
+    --dp-primary-text-color: #ffffff;
+    --dp-secondary-color: #a9a9a9;
+    --dp-border-color: #2d2d2d;
+    --dp-menu-border-color: #2d2d2d;
+    --dp-border-color-hover: #aaaeb7;
+    --dp-disabled-color: #737373;
+    --dp-scroll-bar-background: #212121;
+    --dp-scroll-bar-color: #484848;
+    --dp-success-color: #00701a;
+    --dp-success-color-disabled: #428f59;
+    --dp-icon-color: #959595;
+    --dp-danger-color: #e53935;
+}
+.dp__theme_light {
+--dp-background-color: #0f172a;
+--dp-text-color: #e2e8f0;
+--dp-hover-color: #7dd3fc;
+--dp-hover-text-color: #0f172a;
+
+--dp-secondary-color: #475569;
+--dp-hover-icon-color: #701a75;
+--dp-primary-color: #0ea5e9;
+--dp-success-color: #eab308;
+--dp-success-color-disabled: #fef08a;
+--dp-primary-text-color: #e2e8f0;
+--dp-border-color: #cbd5e1;
+--dp-menu-border-color: #64748b;
+--dp-border-color-hover: #075985;
+--dp-disabled-color: #f6f6f6;
+--dp-scroll-bar-background: #f3f3f3;
+--dp-scroll-bar-color: #959595;
+--dp-icon-color: #f0fdfa;
+
+
+--dp-danger-color: #ff6f60;
+}
+
 
 body{
     font-family: Roboto;

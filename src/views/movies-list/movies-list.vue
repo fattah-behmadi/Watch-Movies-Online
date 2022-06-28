@@ -72,10 +72,12 @@ export default {
       });
     },
     getTitleGenres(arrIDGenres) {
-      return this.genresMovies_state?.reduce((titles, genre) => {
-        if (arrIDGenres?.includes(genre.id)) titles.push(genre.name);
-        return titles;
-      }, []);
+      return this.genresMovies_state
+        ?.reduce((titles, genre) => {
+          if (arrIDGenres?.includes(genre.id)) titles.push(genre.name);
+          return titles;
+        }, [])
+        ?.slice(0, 3);
     },
     clickCard(movie) {
       this.$router.push({
