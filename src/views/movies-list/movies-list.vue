@@ -3,7 +3,7 @@
     <the-header>
       <search-header @search="searchClick" />
     </the-header>
-    <div class="movie-list">
+    <transition-group name="slide-up" tag="div" appear class="movie-list">
       <card-movie
         v-for="movie in listOfMovies_state"
         :key="movie.id"
@@ -13,7 +13,7 @@
         :genres="getTitleGenres(movie.genre_ids)"
         @click="clickCard(movie)"
       />
-    </div>
+    </transition-group>
     <the-pagination
       @selectPage="clickPage"
       :pageCount="totalPages_state"
@@ -96,5 +96,13 @@ export default {
   column-gap: 68px;
   row-gap: 38px;
   margin-top: 7.5rem;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translatey(50px);
+}
+.slide-up-enter-active {
+  transition: all 0.5s ease-out;
 }
 </style>
