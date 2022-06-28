@@ -1,17 +1,19 @@
 <template>
-  <div class="movie-list">
+  <div class="movies-container">
     <the-header>
       <search-header @search="searchClick" />
     </the-header>
-    <card-movie
-      v-for="movie in listOfMovies_state"
-      :key="movie.id"
-      :title="movie.original_title"
-      :releaseDate="movie.release_date"
-      :img="movie.poster_path"
-      :genres="getTitleGenres(movie.genre_ids)"
-      @click="clickCard(movie)"
-    />
+    <div class="movie-list">
+      <card-movie
+        v-for="movie in listOfMovies_state"
+        :key="movie.id"
+        :title="movie.original_title"
+        :releaseDate="movie.release_date"
+        :img="movie.poster_path"
+        :genres="getTitleGenres(movie.genre_ids)"
+        @click="clickCard(movie)"
+      />
+    </div>
     <the-pagination
       @selectPage="clickPage"
       :pageCount="totalPages_state"
@@ -93,5 +95,6 @@ export default {
   flex-wrap: wrap;
   column-gap: 68px;
   row-gap: 38px;
+  margin-top: 7.5rem;
 }
 </style>
