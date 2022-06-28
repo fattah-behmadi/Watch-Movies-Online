@@ -59,7 +59,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.detail-movie-container {
-}
-</style>
+<style lang="scss"></style>

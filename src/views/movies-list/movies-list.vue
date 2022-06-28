@@ -3,7 +3,9 @@
     <the-header>
       <search-header @search="searchClick" />
     </the-header>
-    <div class="movie-list">
+    <div
+      class="flex justify-center items-start flex-wrap gap-y-16 gap-x-9 mt-28"
+    >
       <card-movie
         v-for="movie in listOfMovies_state"
         :key="movie.id"
@@ -90,13 +92,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.movie-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  column-gap: 68px;
-  row-gap: 38px;
-  margin-top: 7.5rem;
-}
-</style>
+<style lang="scss"></style>

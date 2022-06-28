@@ -1,12 +1,15 @@
 <template>
-  <div class="back-home-movie">
-    <button class="btn-search" @click="clickBackHome">
-      <mdicon name="KeyboardBackspace" size="16" />
+  <div class="flex items-center ml-10">
+    <button
+      class="flex items-center text-base bg-purple-900 text-white h-8 w-44 px-4 py-5 place-content-center rounded-full mr-auto mr-16 transition duration-300 hover:shadow-sm hover:shadow-purple-700/50"
+      @click="clickBackHome"
+    >
+      <mdicon name="KeyboardBackspace" size="24" class="mx-2" />
       Back Home
     </button>
-    <div class="header-content">
-      <p class="movie-title">{{ title }}</p>
-      <p class="movie-desc">{{ descriptin }}</p>
+    <div class="ml-16">
+      <p class="text-xl font-bold text-amber-500">{{ title }}</p>
+      <p class="text-amber-50 text-xm">{{ descriptin }}</p>
     </div>
   </div>
 </template>
@@ -22,35 +25,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.back-home-movie {
-  display: flex;
-  align-items: center;
-  margin-inline-start: 2.125rem;
-
-  .btn-search {
-    font-size: 1rem;
-    background-color: var(--clr-blue-light);
-    color: var(--clr-text-light);
-    border-radius: 100px;
-    padding: 8px 16px;
-    width: fit-content;
-    height: 33px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-  }
-  .header-content {
-    margin-inline-start: 4rem;
-    .movie-title {
-      font-style: normal;
-      font-weight: 700;
-      font-size: 1.125rem;
-    }
-    .movie-desc {
-      font-weight: 400;
-      font-size: 1.125rem;
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

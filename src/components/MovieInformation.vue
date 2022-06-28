@@ -1,53 +1,57 @@
 <template>
-  <div class="information-movie">
-    <div class="info-movie__top">
+  <div class="mt-16">
+    <div class="flex gap-16">
       <img
         :src="getUrlImgae(movie.poster_path)"
         alt="cover movie"
-        class="movie-cover"
+        class="w-80 h-[496px] rounded-2xl"
       />
-      <ul class="info-movie__detail">
-        <li class="item__detail">
-          <span class="item-caption">Budget</span>
+      <ul class="info-movie__detail flex-grow mt-6">
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">Budget</span>
           <span class="item-info">{{ movie.budget }}</span>
         </li>
-        <li class="item__detail">
-          <span class="item-caption">Revenue</span>
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">Revenue</span>
           <span class="item-info">{{ movie.revenue }}</span>
         </li>
-        <li class="item__detail">
-          <span class="item-caption">Release Date</span>
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">Release Date</span>
           <span class="item-info">{{ movie.release_date }}</span>
         </li>
-        <li class="item__detail">
-          <span class="item-caption">Runtime</span>
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">Runtime</span>
           <span class="item-info">{{ movie.runtime }}</span>
         </li>
-        <li class="item__detail">
-          <span class="item-caption">Score</span>
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">Score</span>
           <span class="item-info">{{ score }}</span>
         </li>
-        <li class="item__detail">
-          <span class="item-caption">Genres</span>
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">Genres</span>
           <span class="item-info">{{ genres }}</span>
         </li>
-        <li class="item__detail">
-          <span class="item-caption">IMDB Link</span>
-          <a :href="movie.homepage" class="item-info">Link</a>
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">IMDB Link</span>
+          <a :href="movie.homepage" class="text-sky-500">Link</a>
         </li>
-        <li class="item__detail">
-          <span class="item-caption">Homepage Link</span>
-          <a :href="movie.homepage" class="item-info">Link</a>
+        <li class="text-gray-100 flex items-center justify-between mb-5">
+          <span class="text-base font-bold">Homepage Link</span>
+          <a :href="movie.homepage" class="text-sky-500">Link</a>
         </li>
       </ul>
     </div>
 
-    <div class="info-movie__bottom">
-      <p class="movie-desc">{{ movie.overview }}</p>
-      <div class="movie-credit">
-        <p class="captin-credit">Credit:</p>
-        <p class="movie-credit__item">{{ creditsFullName }}</p>
-        <a class="show-credits">, more</a>
+    <div class="mt-12">
+      <!-- movie overview -->
+      <p class="movie-desc text-base leading-6 text-gray-200">
+        {{ movie.overview }}
+      </p>
+
+      <div class="mt-20">
+        <p class="font-bold text-lg text-gray-100 mb-3">CREDIT :</p>
+        <span class="text-gray-50">{{ creditsFullName }}</span>
+        <sapn class="text-gray-50"> more ...</sapn>
       </div>
     </div>
   </div>
@@ -90,57 +94,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.information-movie {
-  margin-top: 4.875rem;
-
-  .info-movie__top {
-    display: flex;
-    column-gap: 4.375rem;
-
-    .movie-cover {
-      width: 330px;
-      height: 495px;
-      border-radius: 12px;
-    }
-    .info-movie__detail {
-      flex-grow: 1;
-      margin-top: 24px;
-      .item__detail {
-        margin-block-end: 1.125rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .item-caption {
-          font-weight: 700;
-          font-size: 16px;
-        }
-        .item-info {
-        }
-      }
-    }
-  }
-
-  .info-movie__bottom {
-    margin-block-start: 3.25rem;
-
-    .movie-desc {
-      font-size: 1rem;
-      line-height: 22px;
-    }
-
-    .movie-credit {
-      margin-block-start: 5rem;
-
-      .captin-credit {
-        font-weight: 700;
-        font-size: 1.125rem;
-      }
-      .movie-credit__item {
-        margin-block-start: 0.75rem;
-        text-overflow: ellipsis;
-      }
-    }
-  }
-}
-</style>
+<style lang="scss"></style>
