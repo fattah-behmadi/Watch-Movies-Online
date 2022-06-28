@@ -1,24 +1,27 @@
 <template>
-  <div class="movie-card">
-    <div class="movie-card__img">
-      <img :src="getUrlImgae(img)" alt="poster" class="movie-img" />
+  <transition appear @before-enter="beforeEnter" @enter="enter" :css="false">
+    <div class="movie-card">
+      <div class="movie-card__img">
+        <img :src="getUrlImgae(img)" alt="poster" class="movie-img" />
+      </div>
+      <div class="movie-card__content">
+        <span class="movie-title">{{ title }} </span>
+        <span class="movie-release_date">
+          <mdicon name="CalendarBlank" size="16" />
+          <span class="date_caption"> {{ releaseDate }}</span>
+        </span>
+        <span class="movie-genres">
+          <span class="genre" v-for="genre in genres" :key="genre">{{
+            genre
+          }}</span>
+        </span>
+      </div>
     </div>
-    <div class="movie-card__content">
-      <span class="movie-title">{{ title }} </span>
-      <span class="movie-release_date">
-        <mdicon name="CalendarBlank" size="16" />
-        <span class="date_caption"> {{ releaseDate }}</span>
-      </span>
-      <span class="movie-genres">
-        <span class="genre" v-for="genre in genres" :key="genre">{{
-          genre
-        }}</span>
-      </span>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
+import gsap from "gsap";
 export default {
   props: {
     img: {
@@ -44,6 +47,18 @@ export default {
     getUrlImgae(path) {
       if (!path) return;
       return `https://image.tmdb.org/t/p/w500${path}`;
+    },
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.transform = "scale(0,0)";
+    },
+    enter(el, done) {
+      gsap.to(el, {
+        duration: 0.5,
+        opacity: 1,
+        scale: 1,
+        onComplete: done,
+      });
     },
   },
 };
