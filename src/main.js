@@ -9,8 +9,8 @@ import Pagination from "vuejs-paginate-next";
 import "@/plugins/axios.plugin";
 import DatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
-
 import "@/assets/scss/tailwind-min.css";
+import "@/assets/scss/datepicker.scss";
 
 const app = createApp(App);
 app.component("PaginationList", Pagination);
