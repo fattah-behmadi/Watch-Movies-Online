@@ -1,7 +1,7 @@
 <template>
   <div class="pagination-container">
     <pagination-list
-      v-model="page"
+      :v-model="page"
       :page-count="pageCount"
       :page-range="pageRange"
       :margin-pages="marginPages"
@@ -32,11 +32,10 @@ export default {
       type: Number,
       default: 2,
     },
-  },
-  data() {
-    return {
-      page: 1,
-    };
+    page: {
+      type: Number,
+      default: 1,
+    },
   },
   methods: {
     clickCallback(event) {

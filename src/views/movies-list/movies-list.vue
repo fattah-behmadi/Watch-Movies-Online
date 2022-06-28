@@ -12,7 +12,11 @@
       :genres="getTitleGenres(movie.genre_ids)"
       @click="clickCard(movie)"
     />
-    <the-pagination @selectPage="clickPage" :pageCount="totalPages_state" />
+    <the-pagination
+      @selectPage="clickPage"
+      :pageCount="totalPages_state"
+      :page="currentPage"
+    />
   </div>
 </template>
 
@@ -33,6 +37,11 @@ export default {
     ThePagination,
     TheHeader,
   },
+  data() {
+    return {
+      currentPage: 1,
+    };
+  },
   computed: {
     ...mapState(nameSpaced, {
       listOfMovies_state: "listOfMovies",
@@ -41,8 +50,9 @@ export default {
     }),
   },
   async mounted() {
+    this.currentPage = +this.$route.query.page || 1;
     await this.getGenresMovies_Action();
-    await this.getListMovies_Action();
+    await this.getListMovies_Action({ page: this.currentPage });
   },
   methods: {
     ...mapActions(nameSpaced, {
@@ -50,6 +60,7 @@ export default {
       getGenresMovies_Action: action.GET_GENRES_MOVIES,
     }),
     clickPage(page) {
+      this.currentPage = page;
       this.getListMovies_Action({ page });
     },
     searchClick(date) {
@@ -68,6 +79,7 @@ export default {
       this.$router.push({
         name: routersMovie.MOVIES_DETAIL_NAME,
         params: { id: movie.id },
+        query: { page: this.currentPage },
       });
     },
   },

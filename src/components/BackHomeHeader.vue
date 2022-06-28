@@ -12,15 +12,11 @@
 </template>
 
 <script>
-import { routers as routersMovie } from "@/constants/movies.constants";
-
 export default {
   props: ["title", "descriptin"],
   methods: {
     clickBackHome() {
-      this.$router.push({
-        name: routersMovie.MOVIES_LIST_NAME,
-      });
+      this.$emit("clickBack");
     },
   },
 };
